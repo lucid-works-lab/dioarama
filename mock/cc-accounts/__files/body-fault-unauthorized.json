@@ -1,0 +1,13 @@
+{
+  "id": 200008,
+  "text": "The Authorization header token is invalid.",
+  "developerText": "Invalid access token",
+  "errorDetails": [
+    {
+      "id": 1,
+      "text": "Unauthorized. The request requires user authentication.",
+      "developerText": "The request requires user authentication."
+    }
+  ],
+  "actions": "do something"
+}

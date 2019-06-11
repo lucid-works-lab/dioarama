@@ -1,0 +1,13 @@
+{
+  "request" : {
+    "urlPattern" : ".*/credit-cards/accounts.*",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 404,
+    "bodyFileName" : "body-fault-not-found.json",
+    "headers" : {
+      "Content-Type" : "application/json;charset=UTF-8"
+    }
+  }
+}

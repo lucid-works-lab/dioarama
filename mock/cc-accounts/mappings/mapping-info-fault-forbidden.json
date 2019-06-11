@@ -1,0 +1,13 @@
+{
+	"request": {
+		"urlPattern": ".*/credit-cards/accounts.*",
+		"method": "GET"
+	},
+	"response": {
+		"status": 403,
+		"bodyFileName": "body-fault-forbidden.json",
+		"headers": {
+			"Content-Type": "application/json; v=3"
+		}
+	}
+}

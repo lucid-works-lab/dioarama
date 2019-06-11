@@ -1,0 +1,13 @@
+{
+  "request" : {
+    "urlPattern" : ".*/v1/public/yql.*",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 500,
+    "bodyFileName" : "body-fault-internal-server-error.json",
+    "headers" : {
+      "Content-Type": "application/json"
+    }
+  }
+}

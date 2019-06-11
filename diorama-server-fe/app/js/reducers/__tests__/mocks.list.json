@@ -1,0 +1,85 @@
+[
+    {
+        "mockId": "tu",
+        "mode": "Mock",
+        "portNumber": 19092,
+        "proxyUrlMatching": ".*/IDAuthentication/AuthenticationService.svc",
+        "proxiedFrom": "https://abcd.lucid.works:443",
+        "stubs": []
+    },
+    {
+        "mockId": "submit",
+        "mode": "Mock",
+        "portNumber": 19090,
+        "proxyUrlMatching": ".*/api1/applications.*",
+        "proxiedFrom": "http://localhost:9090",
+        "stubs": [
+            {
+                "xsi:type": "enumStubConfig",
+                "description": "System Fault",
+                "stubId": "system-fault",
+                "value": "NO_FAULT",
+                "options": [
+                    "NO_FAULT",
+                    "BAD_REQUEST",
+                    "NOT_FOUND",
+                    "INTERNAL_SERVER_ERROR"
+                ]
+            },
+            {
+                "xsi:type": "enumStubConfig",
+                "description": "Application Status",
+                "stubId": "application-status",
+                "value": "Approved",
+                "options": [
+                    "Approved",
+                    "Declined",
+                    "InProgress"
+                ]
+            }
+        ]
+    },
+    {
+        "mockId": "verification",
+        "mode": "Mock",
+        "portNumber": 19091,
+        "proxyUrlMatching": ".*/api1/canada/verification.*",
+        "proxiedFrom": "http://localhost:9091",
+        "stubs": [
+            {
+                "xsi:type": "enumStubConfig",
+                "description": "Submit Answers",
+                "stubId": "submit-answers",
+                "value": "PASS",
+                "options": [
+                    "PASS",
+                    "FAIL",
+                    "ERROR"
+                ]
+            },
+            {
+                "xsi:type": "enumStubConfig",
+                "description": "Verify Identity",
+                "stubId": "verify-identity",
+                "value": "QUESTION",
+                "options": [
+                    "QUESTION",
+                    "FAIL",
+                    "ERROR"
+                ]
+            },
+            {
+                "xsi:type": "enumStubConfig",
+                "description": "System Fault",
+                "stubId": "system-fault",
+                "value": "NO_FAULT",
+                "options": [
+                    "NO_FAULT",
+                    "BAD_REQUEST",
+                    "NOT_FOUND",
+                    "INTERNAL_SERVER_ERROR"
+                ]
+            }
+        ]
+    }
+]

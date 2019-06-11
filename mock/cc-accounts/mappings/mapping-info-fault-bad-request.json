@@ -1,0 +1,13 @@
+{
+  "request" : {
+    "urlPattern" : ".*/credit-cards/accounts.*",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 400,
+    "bodyFileName" : "body-fault-bad-request.json",
+    "headers" : {
+      "Content-Type": "application/json; v=3"
+    }
+  }
+}

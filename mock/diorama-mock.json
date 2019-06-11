@@ -1,0 +1,79 @@
+[
+	{
+		"mockId": "yahoo-query",
+		"mode": "Mock",
+		"stubs": [
+			{
+				"description": "Weather Status",
+				"options": [
+					{
+						"mapping": "mapping-good-weather",
+						"name": "GoodWeather"
+					},
+					{
+						"mapping": "mapping-bad-weather",
+						"name": "BadWeather"
+					},
+					{
+						"mapping": "mapping-fault-bad-request",
+						"name": "BadRequest"
+					},
+					{
+						"mapping": "mapping-fault-internal-server-error",
+						"name": "InternalServerError"
+					},
+					{
+						"mapping": "mapping-fault-not-found",
+						"name": "NotFound"
+					}
+				],
+				"stubId": "weather-status",
+				"value": "GoodWeather"
+			}
+		],
+		"mockType": "Servlet",
+		"portNumber": 0,
+		"proxyUrlMatching": ".*/v1/public/yql.*",
+		"proxiedFrom": "http://query.yahooapis.com"
+	},
+	{
+		"mockId": "cc-accounts",
+		"mode": "Mock",
+		"stubs": [
+			{
+				"description": "Creditcard Accounts Info",
+				"options": [
+					{
+						"mapping": "mapping-info-ok",
+						"name": "InfoOk"
+					},
+					{
+						"mapping": "mapping-info-fault-bad-request",
+						"name": "BadRequest"
+					},
+					{
+						"mapping": "mapping-info-fault-unauthorized",
+						"name": "Unauthorized"
+					},
+					{
+						"mapping": "mapping-info-ok",
+						"name": "Forbidden"
+					},
+					{
+						"mapping": "mapping-info-ok",
+						"name": "NotFound"
+					},
+					{
+						"mapping": "mapping-info-ok",
+						"name": "InternalServerError"
+					}
+				],
+				"stubId": "creditcard-accounts-info-status",
+				"value": "InfoOk"
+			}
+		],
+		"mockType": "Servlet",
+		"portNumber": 0,
+		"proxyUrlMatching": ".*/credit-cards/accounts.*"
+	}
+]

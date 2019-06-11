@@ -1,0 +1,13 @@
+{
+  "request" : {
+    "urlPattern" : ".*/v1/public/yql.*",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 400,
+    "bodyFileName" : "body-fault-bad-request.json",
+    "headers" : {
+      "Content-Type": "application/json"
+    }
+  }
+}

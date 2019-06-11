@@ -1,0 +1,8 @@
+{
+  "presets": [ "react-app", "stage-2" ],
+  "env": {
+    "test": {
+      "plugins": ["rewire"]
+    }
+  }
+}

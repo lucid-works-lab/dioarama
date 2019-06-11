@@ -1,0 +1,14 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPattern": ".*/v1/public/yql.*",
+    "method": "ANY"
+  },
+  "response": {
+    "status": 404,
+    "bodyFileName": "body-fault-not-found.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+} 

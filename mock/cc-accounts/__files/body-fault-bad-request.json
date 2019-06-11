@@ -1,0 +1,13 @@
+{
+  "id": 5678910,
+  "text": "Bad request. The request could not be understood by the server due to malformed body syntax.",
+  "developerText": "bad request",
+  "errorDetails": [
+    {
+      "id": 1,
+      "text": "body is malformed.",
+      "developerText": "request body is malformed."
+    }
+  ],
+  "actions": "do something"
+}

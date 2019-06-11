@@ -1,0 +1,10 @@
+/target/
+**/.DS_Store
+.classpath
+.project
+/.settings
+node
+node_modules
+dist
+etc
+coverage
