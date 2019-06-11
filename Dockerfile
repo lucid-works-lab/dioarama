@@ -1,4 +1,4 @@
-FROM dockyard.works.lucid.diorama/java:8u77-jdk-alpine
+FROM openjdk
 MAINTAINER Michael.Lifschitz@gmail.com
 
 RUN mkdir -p /opt/app/mock

@@ -42,11 +42,4 @@ public class SettingsPrintOut implements CommandLineRunner {
 				(c1, c2) -> c1.getKey().toString().compareTo(c2.getKey().toString());
 	}
 }
-/*
- * Copyright 2016 Capital One Financial Corporation All Rights Reserved.
- *
- * This software contains valuable trade secrets and proprietary information of
- * Capital One and is protected by law. It may not be copied or distributed in
- * any form or medium, disclosed to third parties, reverse engineered or used in
- * any manner without prior written authorization from Capital One.
- */
+

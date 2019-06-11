@@ -133,16 +133,4 @@
 		</pluginManagement>
 	</build>
 
-	<distributionManagement>
-		<repository>
-			<id>central</id>
-			<name>Capital One Artifactory-releases</name>
-			<url>${releases.url}</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>Capital One Artifactory-snapshots</name>
-			<url>${snapshots.url}</url>
-		</snapshotRepository>
-	</distributionManagement>
 </project>
