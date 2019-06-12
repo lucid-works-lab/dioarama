@@ -1,11 +1,11 @@
 {
   "request" : {
-    "urlPattern" : ".*/v1/public/yql.*",
+    "urlPattern" : ".*/books.*",
     "method" : "GET"
   },
   "response" : {
-    "status" : 400,
-    "bodyFileName" : "body-fault-bad-request.json",
+    "status" : 200,
+    "bodyFileName" : "body-book-located.json",
     "headers" : {
       "Content-Type": "application/json"
     }
