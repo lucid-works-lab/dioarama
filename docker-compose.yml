@@ -2,7 +2,9 @@
 version: '2'
 services:
   diorama-server:
-    image: diorama-server:latest
+    build: 
+      context: .
+      dockerfile: Dockerfile
     hostname: diorama-server
     ports:
       - "8080:8080"

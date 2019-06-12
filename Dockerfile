@@ -1,4 +1,4 @@
-FROM openjdk
+FROM anapsix/alpine-java
 MAINTAINER Michael.Lifschitz@gmail.com
 
 RUN mkdir -p /opt/app/mock
