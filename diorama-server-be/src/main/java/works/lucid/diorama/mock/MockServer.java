@@ -8,7 +8,7 @@ import com.github.tomakehurst.wiremock.http.HttpServerFactory;
 import com.github.tomakehurst.wiremock.http.RequestListener;
 
 /**
- * Created by van481 on 8/22/16.
+ * Created by michaellif on 8/22/16.
  */
 public class MockServer implements MockContainer {
 

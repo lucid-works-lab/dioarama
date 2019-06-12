@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by van481 on 7/29/16.
+ * Created by michaellif on 7/29/16.
  */
 public class StubConfig {
 

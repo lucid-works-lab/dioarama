@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 /**
- * Created by van481 on 8/10/16.
+ * Created by michaellif on 8/10/16.
  */
 @XmlRootElement
 public class MockRequestItem {

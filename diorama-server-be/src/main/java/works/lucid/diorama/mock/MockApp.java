@@ -31,7 +31,7 @@ import com.github.tomakehurst.wiremock.servlet.NotImplementedContainer;
 import com.google.common.collect.ImmutableList;
 
 /**
- * Created by van481 on 6/24/16.
+ * Created by michaellif on 6/24/16.
  */
 public final class MockApp {
 

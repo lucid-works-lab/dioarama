@@ -13,7 +13,7 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 
 /**
- * Created by van481 on 8/3/16.
+ * Created by michaellif on 8/3/16.
  */
 class MockMappingsSource implements MappingsSource {
 	private final FileSource mappingsFileSource;

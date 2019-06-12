@@ -13,7 +13,7 @@ import works.lucid.diorama.mock.MockRequestItem;
 import works.lucid.diorama.mock.MockRequestRecorder;
 
 /**
- * Created by van481 on 7/26/16.
+ * Created by michaellif on 7/26/16.
  */
 @Path("/request/http")
 public class HttpRequestResource {

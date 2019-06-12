@@ -20,7 +20,7 @@ import com.github.tomakehurst.wiremock.http.Response;
 import com.github.tomakehurst.wiremock.servlet.WireMockHttpServletRequestAdapter;
 
 /**
- * Created by van481 on 8/22/16.
+ * Created by michaellif on 8/22/16.
  */
 public class MockServlet extends HttpServlet implements MockContainer {
 
