@@ -69,8 +69,8 @@ public final class MockApp {
 		}
 	}
 
-	private String mockId;
-
+	private MockConfig dioramaMockConfig;
+	
 	private WireMockApp wireMockApp;
 
 	private StubRequestHandler stubRequestHandler;
@@ -78,10 +78,6 @@ public final class MockApp {
 	private AdminRequestHandler adminRequestHandler;
 
 	private WireMockConfiguration config;
-
-	private MockMode mode;
-
-	private String proxyUrlMatching;
 
 	private String proxiedFrom;
 
@@ -91,15 +87,13 @@ public final class MockApp {
 
 	private MockMappingsSource mappingsSource;
 
-	public MockApp(String mockId, String mockDirectory, String proxyUrlMatching,
-			List<StubConfig> stubConfigList) {
-		config = WireMockConfiguration.wireMockConfig().usingFilesUnderDirectory(mockDirectory);
-		configureMockProperties(mockId);
-		this.mockId = mockId;
-		this.proxyUrlMatching = proxyUrlMatching;
+	public MockApp(MockConfig dioramaMockConfig) {
+		this.dioramaMockConfig = dioramaMockConfig;
+		config = WireMockConfiguration.wireMockConfig().usingFilesUnderDirectory(dioramaMockConfig.mockDir);
+		configureMockProperties(dioramaMockConfig.mockId);
 
 		try {
-			proxiedFrom = getMockProperty(mockId, PROXIED_FROM_PROPERTY_NAME);
+			proxiedFrom = getMockProperty(dioramaMockConfig.mockId, PROXIED_FROM_PROPERTY_NAME);
 
 			fileSource = config.filesRoot();
 
@@ -107,10 +101,10 @@ public final class MockApp {
 
 			mappingsSource = new MockMappingsSource(this);
 
-			mode = MockMode.Mock;
+			dioramaMockConfig.mode = MockMode.Mock;
 
-			if (stubConfigList != null) {
-				for (StubConfig stubConfig : stubConfigList) {
+			if (dioramaMockConfig.stubs != null) {
+				for (StubConfig stubConfig : dioramaMockConfig.stubs) {
 					stubConfigMap.put(stubConfig.getStubId(), stubConfig);
 				}
 			}
@@ -124,16 +118,16 @@ public final class MockApp {
 			stubRequestHandler = new StubRequestHandler(wireMockApp,
 					new StubResponseRenderer(fileSource.child("__files"), wireMockApp.getGlobalSettingsHolder(),
 							new ProxyResponseRenderer(config.proxyVia(),
-									getMockProperty(mockId, MockApp.DOWNSTREAM_KEYSTORE_PATH_PROPERTY_NAME) == null
+									getMockProperty(dioramaMockConfig.mockId, MockApp.DOWNSTREAM_KEYSTORE_PATH_PROPERTY_NAME) == null
 											? KeyStoreSettings.NO_STORE
 											: new KeyStoreSettings(
 													WireMockServer.class
 															.getClassLoader()
 															.getResource(getMockProperty(
-																	mockId,
+																	dioramaMockConfig.mockId,
 																	MockApp.DOWNSTREAM_KEYSTORE_PATH_PROPERTY_NAME))
 															.getPath(),
-													getMockProperty(mockId,
+													getMockProperty(dioramaMockConfig.mockId,
 															MockApp.DOWNSTREAM_KEYSTORE_PASSWORD_PROPERTY_NAME)),
 									config.shouldPreserveHostHeader(), config.proxyHostHeader()),
 							ImmutableList.copyOf(config.extensionsOfType(ResponseTransformer.class).values())));
@@ -174,7 +168,7 @@ public final class MockApp {
 	}
 
 	public void setMode(MockMode mode) {
-		this.mode = mode;
+		dioramaMockConfig.mode = mode;
 		applyMappings();
 	}
 
@@ -191,7 +185,7 @@ public final class MockApp {
 
 	protected void applyMappings() {
 		wireMockApp.loadMappingsUsing(mappingsSource);
-		switch (mode) {
+		switch (dioramaMockConfig.mode) {
 		case Mock:
 			wireMockApp.resetToDefaultMappings();
 			break;
@@ -207,13 +201,17 @@ public final class MockApp {
 	}
 
 	public String getMockId() {
-		return mockId;
+		return dioramaMockConfig.mockId;
 	}
 
 	public MockMode getMode() {
-		return mode;
+		return dioramaMockConfig.mode;
 	}
 
+	public MockConfig getDioramaMockConfig() {
+		return dioramaMockConfig;
+	}
+	
 	public static String getMockProperty(String mockId, String key) {
 		return properties.getProperty(mockId + "." + key);
 	}
@@ -239,7 +237,7 @@ public final class MockApp {
 	}
 
 	public String getProxyUrlMatching() {
-		return proxyUrlMatching;
+		return dioramaMockConfig.proxyUrlMatching;
 	}
 
 	public String getProxiedFrom() {
@@ -247,7 +245,7 @@ public final class MockApp {
 	}
 
 	private void addProxyMapping() {
-		wireMockApp.addStubMapping(WireMock.any(urlMatching(proxyUrlMatching)).atPriority(PROXY_PRIORITY)
+		wireMockApp.addStubMapping(WireMock.any(urlMatching(dioramaMockConfig.proxyUrlMatching)).atPriority(PROXY_PRIORITY)
 				.willReturn(aResponse().proxiedFrom(proxiedFrom)).build());
 	}
 

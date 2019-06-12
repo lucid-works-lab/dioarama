@@ -29,13 +29,10 @@ public class MockServlet extends HttpServlet implements MockContainer {
 	private MockApp app;
 
 	private ServletContext context;
-	
-	private MockConfig config;
 
 	public MockServlet(MockConfig config, ServletContext context) {
 		super();
-		this.config = config;
-		this.app = new MockApp(config.mockId, config.mockDir, config.proxyUrlMatching, config.stubs);
+		this.app = new MockApp(config);
 		this.context = context;
 		addMockServiceRequestListener(new MockRequestRecorder(this));
 	}
@@ -129,6 +126,6 @@ public class MockServlet extends HttpServlet implements MockContainer {
 
 	@Override
 	public MockConfig getMockConfig() {
-		return config;
+		return app.getDioramaMockConfig();
 	}
 }

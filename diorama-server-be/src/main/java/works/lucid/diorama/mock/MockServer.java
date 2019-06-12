@@ -16,12 +16,9 @@ public class MockServer implements MockContainer {
 
 	private MockApp app;
 
-	private MockConfig config;
-	
 	public MockServer(MockConfig config) {
 		super();
-		this.config = config;
-		this.app = new MockApp(config.mockId, config.mockDir, config.proxyUrlMatching, config.stubs);
+		this.app = new MockApp(config);
 		HttpServerFactory httpServerFactory = app.getConfig().httpServerFactory();
 		this.httpServer = httpServerFactory.buildHttpServer(app.getConfig(), app.getAdminRequestHandler(),
 				app.getStubRequestHandler());
@@ -85,6 +82,6 @@ public class MockServer implements MockContainer {
 
 	@Override
 	public MockConfig getMockConfig() {
-		return config;
+		return app.getDioramaMockConfig();
 	}
 }
